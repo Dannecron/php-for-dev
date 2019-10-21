@@ -1,4 +1,4 @@
-FROM php:7.2.21-alpine
+FROM php:7.2.23-alpine
 
 RUN apk update && apk add --no-cache $PHPIZE_DEPS
 RUN apk add --no-cache zlib-dev gd-dev libwebp-dev freetype-dev libpng-dev libjpeg-turbo-dev \
