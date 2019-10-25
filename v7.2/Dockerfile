@@ -1,5 +1,9 @@
 FROM php:7.2.23-alpine
 
+ARG PHP_XDEBUG_VERSION=2.7.2
+ARG PHP_RDKAFKA_VERSION=3.1.2
+ARG PHP_TIMECOP_VERSION=1.2.10
+
 RUN apk update && apk add --no-cache $PHPIZE_DEPS
 RUN apk add --no-cache zlib-dev gd-dev libwebp-dev freetype-dev libpng-dev libjpeg-turbo-dev \
     curl gmp-dev librdkafka-dev
@@ -11,8 +15,8 @@ RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ \
 RUN docker-php-ext-configure bcmath && docker-php-ext-install bcmath
 RUN docker-php-ext-install zip
 RUN docker-php-ext-install gmp
-RUN pecl install xdebug && docker-php-ext-enable xdebug
-RUN pecl install rdkafka && docker-php-ext-enable rdkafka
+RUN pecl install xdebug-${PHP_XDEBUG_VERSION} && docker-php-ext-enable xdebug
+RUN pecl install rdkafka-${PHP_RDKAFKA_VERSION} && docker-php-ext-enable rdkafka
 
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- \
@@ -22,8 +26,7 @@ RUN mkdir -m 777 -p /var/composer/
 ENV COMPOSER_HOME /var/composer/
 
 # Install timecop
-ENV PHP_TIMECOP_VERSION master
-RUN curl -L -o /tmp/timecop.tar.gz https://github.com/hnw/php-timecop/archive/${PHP_TIMECOP_VERSION}.tar.gz \
+RUN curl -L -o /tmp/timecop.tar.gz https://github.com/hnw/php-timecop/archive/v${PHP_TIMECOP_VERSION}.tar.gz \
     && mkdir -p timecop \
     && tar xfz /tmp/timecop.tar.gz -C timecop --strip-components=1 \
     && rm -r /tmp/timecop.tar.gz \
