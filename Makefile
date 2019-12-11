@@ -3,3 +3,6 @@ build-72:
 
 build-73:
 	cd ./v7.3 && docker build --tag=local-composer:7.3 `pwd`
+
+build-74:
+	cd ./v7.4 && docker build --tag=local-composer:7.4 `pwd`
