@@ -14,13 +14,18 @@ jobs:
 
       - name: Build the Docker image
         run: |
-          cd ./v7.2
-          docker build --tag=local-composer:7.2 `pwd`
+          docker build --tag=local-composer:7.2 ./v7.2
           docker run --rm local-composer:7.2 php -v
-          cd ..
+          echo "Done"
         
-      # - name: Build the Docker image 7.3
-        # run: docker build --tag=local-composer:7.3 ./v7.3
+      - name: Build the Docker image 7.3
+        run: |
+          docker build --tag=local-composer:7.3 ./v7.3
+          docker run --rm local-composer:7.3 php -v
+          echo "Done"
 
-      # - name: Build the Docker image 7.4
-        # run: docker build --tag=local-composer:7.2 ./v7.2 
+      - name: Build the Docker image 7.4
+        run: |
+          docker build --tag=local-composer:7.4 ./v7.4
+          docker run --rm local-composer:7.4 php -v
+          echo "Done"
