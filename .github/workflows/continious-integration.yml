@@ -1,0 +1,22 @@
+name: continious integration
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build the Docker image
+        run: |
+          cd ./v7.2
+          docker build --tag=local-composer:7.2 `pwd`
+          cd ..
+        
+      # - name: Build the Docker image 7.3
+        # run: docker build --tag=local-composer:7.3 ./v7.3
+
+      # - name: Build the Docker image 7.4
+        # run: docker build --tag=local-composer:7.2 ./v7.2 
