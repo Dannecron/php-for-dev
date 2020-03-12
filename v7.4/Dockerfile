@@ -1,4 +1,4 @@
-FROM php:7.4.1-alpine
+FROM php:7.4.3-alpine
 
 ARG PHP_XDEBUG_VERSION=2.9.0
 ARG PHP_RDKAFKA_VERSION=3.1.2
@@ -6,7 +6,7 @@ ARG PHP_TIMECOP_VERSION=1.2.10
 
 RUN apk update && apk add --no-cache $PHPIZE_DEPS
 RUN apk add --no-cache zlib-dev gd-dev libwebp-dev freetype-dev libpng-dev libjpeg-turbo-dev \
-    curl zip libzip-dev gmp-dev librdkafka-dev imap-dev openssl-dev
+    curl zip libzip-dev gmp-dev librdkafka-dev imap-dev openssl-dev git
 RUN docker-php-ext-configure gd --enable-gd \
         --with-freetype \
         --with-jpeg \

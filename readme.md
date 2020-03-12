@@ -2,9 +2,18 @@
 
 #### Supported versions
 
-* php 7.4.0
-* php 7.3.10
-* php 7.2.23
+* php 7.4.3
+    * xdebug 2.9.0
+    * rdkafka 3.1.2
+    * timecop 1.2.10
+* php 7.3.15
+    * xdebug 2.7.2
+    * rdkafka 3.1.2
+    * timecop 1.2.10
+* php 7.2.28
+    * xdebug 2.7.2
+    * rdkafka 3.1.2
+    * timecop 1.2.10
 
 #### Build
 
