@@ -9,10 +9,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
       - name: Build the Docker image
         run: |
           cd ./v7.2
           docker build --tag=local-composer:7.2 `pwd`
+          docker run --rm local-composer:7.2 php -v
           cd ..
         
       # - name: Build the Docker image 7.3
