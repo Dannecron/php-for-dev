@@ -12,7 +12,7 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v2
 
-      - name: Build the Docker image
+      - name: Build the Docker image 7.2
         run: |
           docker build --tag=local-composer:7.2 ./v7.2
           docker run --rm local-composer:7.2 php -v

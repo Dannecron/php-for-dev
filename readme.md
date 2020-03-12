@@ -1,5 +1,7 @@
 ### Docker images with php and composer inside
 
+![continious integration](https://github.com/Dannecron/php-docker/workflows/continious%20integration/badge.svg?branch=master&event=push)
+
 #### Supported versions
 
 * php 7.4.3
