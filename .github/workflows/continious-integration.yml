@@ -12,12 +12,18 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v2
 
+      - name: Login to docker hub
+        uses: actions-hub/docker/login@master
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+
       - name: Build the Docker image 7.2
         run: |
           docker build --tag=local-composer:7.2 ./v7.2
           docker run --rm local-composer:7.2 php -v
           echo "Done"
-        
+
       - name: Build the Docker image 7.3
         run: |
           docker build --tag=local-composer:7.3 ./v7.3
@@ -29,3 +35,13 @@ jobs:
           docker build --tag=local-composer:7.4 ./v7.4
           docker run --rm local-composer:7.4 php -v
           echo "Done"
+
+      - name: Push all images to docker hub
+        if: success()
+        run: |
+          docker tag local-composer:7.2 dannecron/php-for-dev:7.2
+          docker tag local-composer:7.3 dannecron/php-for-dev:7.3
+          docker tag local-composer:7.4 dannecron/php-for-dev:7.4
+          docker push dannecron/php-for-dev:7.2
+          docker push dannecron/php-for-dev:7.3
+          docker push dannecron/php-for-dev:7.4
