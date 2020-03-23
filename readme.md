@@ -4,15 +4,15 @@
 
 #### Supported versions
 
-* php 7.4.3
+* php 7.4.4
     * xdebug 2.9.0
     * rdkafka 3.1.2
     * timecop 1.2.10
-* php 7.3.15
+* php 7.3.16
     * xdebug 2.7.2
     * rdkafka 3.1.2
     * timecop 1.2.10
-* php 7.2.28
+* php 7.2.29
     * xdebug 2.7.2
     * rdkafka 3.1.2
     * timecop 1.2.10
