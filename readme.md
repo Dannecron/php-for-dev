@@ -7,11 +7,11 @@ Images can be found on [docker hub](https://hub.docker.com/repository/docker/dan
 #### Supported versions
 
 * php 7.4.4
-    * xdebug 2.9.0
+    * xdebug 2.9.5
     * rdkafka 3.1.2
     * timecop 1.2.10
 * php 7.3.16
-    * xdebug 2.7.2
+    * xdebug 2.9.5
     * rdkafka 3.1.2
     * timecop 1.2.10
 * php 7.2.29
