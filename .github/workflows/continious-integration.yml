@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - master
+    paths:
+      - 'v*/**'
 
 jobs:
   build:
@@ -18,41 +20,48 @@ jobs:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build the Docker image 7.2
+      - name: Build the Docker images 7.2
         run: |
           docker build --tag=local-composer:7.2 ./v7.2
           docker run --rm local-composer:7.2 php -v
           docker tag local-composer:7.2 dannecron/php-for-dev:7.2
           echo "Done"
 
-      - name: Build the Docker image 7.3
+      - name: Build the Docker images 7.3
         run: |
           docker build --tag=local-composer:7.3 ./v7.3
           docker run --rm local-composer:7.3 php -v
           docker tag local-composer:7.3 dannecron/php-for-dev:7.3
           echo "Done"
 
-      - name: Build the Docker image 7.4
+      - name: Build the Docker images 7.4
         run: |
           docker build --tag=local-composer:7.4 ./v7.4
           docker run --rm local-composer:7.4 php -v
           docker tag local-composer:7.4 dannecron/php-for-dev:7.4
+          docker tag local-composer:7.4 dannecron/php-for-dev:latest
           echo "Done"
 
-      - name: push 7.2 images to docker hub
+      - name: push 7.2 image to docker hub
         if: success()
         uses: actions-hub/docker@master
         with:
           args: push dannecron/php-for-dev:7.2
 
-      - name: push 7.3 images to docker hub
+      - name: push 7.3 image to docker hub
         if: success()
         uses: actions-hub/docker@master
         with:
           args: push dannecron/php-for-dev:7.3
 
-      - name: push 7.4 images to docker hub
+      - name: push 7.4 image to docker hub
         if: success()
         uses: actions-hub/docker@master
         with:
           args: push dannecron/php-for-dev:7.4
+
+      - name: push latest image to docker hub
+        if: success()
+        uses: actions-hub/docker@master
+        with:
+          args: push dannecron/php-for-dev:latest
