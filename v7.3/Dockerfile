@@ -1,4 +1,4 @@
-FROM php:7.3.23-alpine
+FROM php:7.3.24-alpine
 
 RUN apk update && apk add --no-cache $PHPIZE_DEPS \
     && apk add --no-cache zlib-dev gd-dev libwebp-dev freetype-dev libpng-dev libjpeg-turbo-dev \
@@ -12,7 +12,7 @@ RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ \
     && docker-php-ext-configure zip --with-libzip && docker-php-ext-install zip \
     && docker-php-ext-install gmp
 
-ARG PHP_XDEBUG_VERSION=2.9.5
+ARG PHP_XDEBUG_VERSION=2.9.8
 RUN pecl install xdebug-${PHP_XDEBUG_VERSION} && docker-php-ext-enable xdebug
 
 ARG PHP_RDKAFKA_VERSION=3.1.2
@@ -21,7 +21,7 @@ RUN docker-php-ext-configure imap --with-imap-ssl \
     && docker-php-ext-install imap
 
 # Install composer
-ARG COMPOSER_VERSION=1.10.10
+ARG COMPOSER_VERSION=1.10.17
 RUN curl -sS https://getcomposer.org/installer | php -- \
         --filename=composer \
         --version=${COMPOSER_VERSION} \
