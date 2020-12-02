@@ -38,7 +38,7 @@ make build-74
 After making image run
 
 ```bash
-docker run -it --rm -v `pwd`:/var/www/project -w /var/www/project --user=1000 local-composer:7.* sh
+docker run -it --rm -v `pwd`:/var/www/project -w /var/www/project --user=1000 php-for-dev:7.* sh
 ```
 
 where replace `*` minor php version.
@@ -58,5 +58,5 @@ docker run -it --rm \
     -v .oh-my-zsh:/home/user/oh-my-zsh \
     -e HOME=/home/user \
     -w /var/www/project \
-    --user=1000 local-composer:7.* sh
+    --user=1000 php-for-dev:7.* sh
 ```

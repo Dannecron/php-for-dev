@@ -1,8 +1,8 @@
 build-72:
-	cd ./v7.2 && docker build --tag=local-composer:7.2 `pwd`
+	cd ./v7.2 && docker build --tag=php-for-dev:7.2 `pwd`
 
 build-73:
-	cd ./v7.3 && docker build --tag=local-composer:7.3 `pwd`
+	cd ./v7.3 && docker build --tag=php-for-dev:7.3 `pwd`
 
 build-74:
-	cd ./v7.4 && docker build --tag=local-composer:7.4 `pwd`
+	cd ./v7.4 && docker build --tag=php-for-dev:7.4 `pwd`
