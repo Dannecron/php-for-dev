@@ -6,12 +6,12 @@ Images can be found on [docker hub](https://hub.docker.com/repository/docker/dan
 
 #### Supported versions
 
-* php 7.4.12
+* php 7.4.13
     * composer 1.10.17
     * xdebug 2.9.8
     * rdkafka 3.1.2
     * timecop 1.2.10
-* php 7.3.24
+* php 7.3.25
     * composer 1.10.17
     * xdebug 2.9.8
     * rdkafka 3.1.2
@@ -21,6 +21,8 @@ Images can be found on [docker hub](https://hub.docker.com/repository/docker/dan
     * xdebug 2.7.2
     * rdkafka 3.1.2
     * timecop 1.2.10
+
+All images now include [zsh](https://www.zsh.org/), that allowed using [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) and its plugins for improving user experience.
 
 #### Build
 
@@ -40,3 +42,21 @@ docker run -it --rm -v `pwd`:/var/www/project -w /var/www/project --user=1000 lo
 ```
 
 where replace `*` minor php version.
+
+##### Using oh-my-zsh from local machine
+
+To use already installed `oh-my-zsh` inside docker container we should pass couple volumes and environment variables:
+* `-v .zshrc:/home/user/.zshrc` - configuration file for `zsh`
+* `-v .oh-my-zsh:/home/user/oh-my-zsh` - directory with installed `oh-my-zsh`
+* `-e HOME=/home/user` - define user home directory
+
+Full run command would be looks like
+```bash
+docker run -it --rm \
+    -v `pwd`:/var/www/project \
+    -v .zshrc:/home/user/.zshrc \
+    -v .oh-my-zsh:/home/user/oh-my-zsh \
+    -e HOME=/home/user \
+    -w /var/www/project \
+    --user=1000 local-composer:7.* sh
+```
