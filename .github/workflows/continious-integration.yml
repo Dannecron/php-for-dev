@@ -42,6 +42,13 @@ jobs:
           docker tag local-composer:7.4 dannecron/php-for-dev:latest
           echo "Done"
 
+      - name: Build the Docker images 8.0
+        run: |
+          docker build --tag=local-composer:8.0 ./v8.0
+          docker run --rm local-composer:8.0 php -v
+          docker tag local-composer:8.0 dannecron/php-for-dev:8.0
+          echo "Done"
+
       - name: push 7.2 image to docker hub
         if: success()
         uses: actions-hub/docker@master
@@ -59,6 +66,12 @@ jobs:
         uses: actions-hub/docker@master
         with:
           args: push dannecron/php-for-dev:7.4
+
+      - name: push 8.0 image to docker hub
+        if: success()
+        uses: actions-hub/docker@master
+        with:
+          args: push dannecron/php-for-dev:8.0
 
       - name: push latest image to docker hub
         if: success()
