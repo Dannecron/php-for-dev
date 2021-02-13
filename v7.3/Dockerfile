@@ -44,6 +44,3 @@ RUN curl -L -o /tmp/timecop.tar.gz https://github.com/hnw/php-timecop/archive/v$
     ) \
     && rm -r timecop \
     && docker-php-ext-enable timecop
-
-RUN apk del $PHPIZE_DEPS zlib-dev gd-dev libwebp-dev freetype-dev libpng-dev libjpeg-turbo-dev \
-    libzip-dev gmp-dev librdkafka-dev imap-dev openssl-dev
