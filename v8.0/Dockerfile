@@ -1,4 +1,4 @@
-FROM php:8.0.1-alpine
+FROM php:8.0.2-alpine
 
 RUN apk update && apk add --no-cache $PHPIZE_DEPS \
     && apk add --no-cache zlib-dev gd-dev libwebp-dev freetype-dev libpng-dev libjpeg-turbo-dev \
@@ -31,3 +31,6 @@ RUN curl -sS https://getcomposer.org/installer | php -- \
         --install-dir=/usr/local/bin
 RUN mkdir -m 777 -p /var/composer/
 ENV COMPOSER_HOME /var/composer/
+
+RUN apk del $PHPIZE_DEPS zlib-dev gd-dev libwebp-dev freetype-dev libpng-dev libjpeg-turbo-dev \
+    libzip-dev gmp-dev librdkafka-dev imap-dev openssl-dev
