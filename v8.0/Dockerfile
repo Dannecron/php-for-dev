@@ -1,4 +1,4 @@
-FROM php:8.0.2-alpine
+FROM php:8.0.3-alpine
 
 RUN apk update && apk add --no-cache $PHPIZE_DEPS \
     && apk add --no-cache zlib-dev gd-dev libwebp-dev freetype-dev libpng-dev libjpeg-turbo-dev \
