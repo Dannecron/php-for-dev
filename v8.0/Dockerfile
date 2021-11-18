@@ -17,11 +17,11 @@ RUN docker-php-ext-configure gd --enable-gd \
     && PHP_OPENSSL=yes docker-php-ext-configure imap --with-imap-ssl \
     && docker-php-ext-install imap
 
-ARG PHP_XDEBUG_VERSION=3.1.0
+ARG PHP_XDEBUG_VERSION=3.1.1
 RUN pecl install xdebug-${PHP_XDEBUG_VERSION} && docker-php-ext-enable xdebug
 
 # Install composer
-ARG COMPOSER_VERSION=2.1.9
+ARG COMPOSER_VERSION=2.1.12
 RUN curl -sS https://getcomposer.org/installer | php -- \
         --filename=composer \
         --version=${COMPOSER_VERSION} \

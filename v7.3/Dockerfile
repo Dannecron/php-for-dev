@@ -1,4 +1,4 @@
-FROM php:7.3.31-alpine
+FROM php:7.3.32-alpine
 
 RUN apk update && apk add --no-cache $PHPIZE_DEPS \
     && apk add --no-cache zlib-dev gd-dev libwebp-dev freetype-dev libpng-dev libjpeg-turbo-dev \
@@ -21,7 +21,7 @@ RUN docker-php-ext-configure imap --with-imap-ssl \
     && docker-php-ext-install imap
 
 # Install composer
-ARG COMPOSER_VERSION=1.10.22
+ARG COMPOSER_VERSION=1.10.23
 RUN curl -sS https://getcomposer.org/installer | php -- \
         --filename=composer \
         --version=${COMPOSER_VERSION} \
