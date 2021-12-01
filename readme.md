@@ -9,7 +9,7 @@ Images can be found on [docker hub](https://hub.docker.com/repository/docker/dan
 * php 8.0.12
   * composer 2.1.12
   * xdebug 3.1.0
-* php 7.4.24 (latest)
+* php 7.4.25 (latest)
   * composer 1.10.23
   * xdebug 2.9.8
   * rdkafka 3.1.2
