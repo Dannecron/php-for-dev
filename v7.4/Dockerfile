@@ -1,4 +1,4 @@
-FROM php:7.4.25-alpine
+FROM php:7.4.26-alpine
 
 RUN apk update && apk add --no-cache $PHPIZE_DEPS \
     && apk add --no-cache zlib-dev gd-dev libwebp-dev freetype-dev libpng-dev libjpeg-turbo-dev \
@@ -21,7 +21,7 @@ ARG PHP_RDKAFKA_VERSION=3.1.2
 RUN pecl install rdkafka-${PHP_RDKAFKA_VERSION} && docker-php-ext-enable rdkafka
 
 # Install composer
-ARG COMPOSER_VERSION=1.10.23
+ARG COMPOSER_VERSION=1.10.24
 RUN curl -sS https://getcomposer.org/installer | php -- \
         --filename=composer \
         --version=${COMPOSER_VERSION} \

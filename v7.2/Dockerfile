@@ -21,7 +21,7 @@ RUN docker-php-ext-configure imap --with-imap-ssl \
     && docker-php-ext-install imap
 
 # Install composer
-ARG COMPOSER_VERSION=1.10.23
+ARG COMPOSER_VERSION=1.10.24
 RUN curl -sS https://getcomposer.org/installer | php -- \
         --filename=composer \
         --version=${COMPOSER_VERSION}\

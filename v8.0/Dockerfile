@@ -1,4 +1,4 @@
-FROM php:8.0.12-alpine
+FROM php:8.0.13-alpine
 
 RUN apk update && apk add --no-cache $PHPIZE_DEPS \
     && apk add --no-cache zlib-dev gd-dev libwebp-dev freetype-dev libpng-dev libjpeg-turbo-dev \
@@ -17,11 +17,11 @@ RUN docker-php-ext-configure gd --enable-gd \
     && PHP_OPENSSL=yes docker-php-ext-configure imap --with-imap-ssl \
     && docker-php-ext-install imap
 
-ARG PHP_XDEBUG_VERSION=3.1.1
+ARG PHP_XDEBUG_VERSION=3.1.2
 RUN pecl install xdebug-${PHP_XDEBUG_VERSION} && docker-php-ext-enable xdebug
 
 # Install composer
-ARG COMPOSER_VERSION=2.1.12
+ARG COMPOSER_VERSION=2.1.14
 RUN curl -sS https://getcomposer.org/installer | php -- \
         --filename=composer \
         --version=${COMPOSER_VERSION} \
