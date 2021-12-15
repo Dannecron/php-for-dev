@@ -6,6 +6,9 @@ Images can be found on [docker hub](https://hub.docker.com/repository/docker/dan
 
 #### Supported versions
 
+* php 8.1.0
+  * composer 2.1.14
+  * xdebug 3.1.0
 * php 8.0.13
   * composer 2.1.14
   * xdebug 3.1.0
@@ -35,6 +38,7 @@ make build-72
 make build-73
 make build-74
 make build-80
+make build-81
 ```
 
 #### Run
@@ -42,10 +46,10 @@ make build-80
 After making image run
 
 ```bash
-docker run -it --rm -v `pwd`:/var/www/project -w /var/www/project --user=1000 php-for-dev:7.* sh
+docker run -it --rm -v `pwd`:/var/www/project -w /var/www/project --user=1000 php-for-dev:M.m sh
 ```
 
-where replace `*` minor php version.
+where replace `M` with major, and `m` with minor php version.
 
 ##### Using oh-my-zsh from local machine
 
@@ -62,5 +66,5 @@ docker run -it --rm \
     -v .oh-my-zsh:/home/user/oh-my-zsh \
     -e HOME=/home/user \
     -w /var/www/project \
-    --user=1000 php-for-dev:7.* sh
+    --user=1000 php-for-dev:M.m sh
 ```

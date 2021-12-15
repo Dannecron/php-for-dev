@@ -9,3 +9,6 @@ build-74:
 
 build-80:
 	cd ./v8.0 && docker build --tag=php-for-dev:8.0 `pwd`
+
+build-81:
+	cd ./v8.1 && docker build --tag=php-for-dev:8.1 `pwd`
