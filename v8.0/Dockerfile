@@ -21,7 +21,7 @@ ARG PHP_XDEBUG_VERSION=3.1.2
 RUN pecl install xdebug-${PHP_XDEBUG_VERSION} && docker-php-ext-enable xdebug
 
 # Install composer
-ARG COMPOSER_VERSION=2.1.14
+ARG COMPOSER_VERSION=2.2.0
 RUN curl -sS https://getcomposer.org/installer | php -- \
         --filename=composer \
         --version=${COMPOSER_VERSION} \
