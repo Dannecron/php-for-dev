@@ -1,4 +1,4 @@
-FROM php:8.0.13-alpine
+FROM php:8.0.14-alpine
 
 RUN apk update && apk add --no-cache $PHPIZE_DEPS \
     && apk add --no-cache zlib-dev gd-dev libwebp-dev freetype-dev libpng-dev libjpeg-turbo-dev \
@@ -21,7 +21,7 @@ ARG PHP_XDEBUG_VERSION=3.1.2
 RUN pecl install xdebug-${PHP_XDEBUG_VERSION} && docker-php-ext-enable xdebug
 
 # Install composer
-ARG COMPOSER_VERSION=2.2.0
+ARG COMPOSER_VERSION=2.2.4
 RUN curl -sS https://getcomposer.org/installer | php -- \
         --filename=composer \
         --version=${COMPOSER_VERSION} \

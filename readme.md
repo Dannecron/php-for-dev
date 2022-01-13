@@ -6,13 +6,13 @@ Images can be found on [docker hub](https://hub.docker.com/repository/docker/dan
 
 #### Supported versions
 
-* php 8.1.0
-  * composer 2.2.0
+* php 8.1.1
+  * composer 2.2.4
   * xdebug 3.1.0
-* php 8.0.13
-  * composer 2.2.0
+* php 8.0.14
+  * composer 2.2.4
   * xdebug 3.1.0
-* php 7.4.26 (latest)
+* php 7.4.27 (latest)
   * composer 1.10.24
   * xdebug 2.9.8
   * rdkafka 3.1.2
