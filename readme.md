@@ -8,10 +8,10 @@ Images can be found on [docker hub](https://hub.docker.com/repository/docker/dan
 
 * php 8.1.1
   * composer 2.2.4
-  * xdebug 3.1.0
+  * xdebug 3.1.2
 * php 8.0.14
   * composer 2.2.4
-  * xdebug 3.1.0
+  * xdebug 3.1.2
 * php 7.4.27 (latest)
   * composer 1.10.24
   * xdebug 2.9.8
