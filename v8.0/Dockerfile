@@ -1,12 +1,13 @@
-FROM php:8.0.15-alpine
+FROM php:8.0.16-alpine
+
+ARG PHP_XDEBUG_VERSION=3.1.2
 
 RUN apk update && apk add --no-cache $PHPIZE_DEPS \
     && apk add --no-cache zlib-dev gd-dev libwebp-dev freetype-dev libpng-dev libjpeg-turbo-dev \
         curl zip libzip-dev gmp-dev \
         #librdkafka-dev \
-        imap-dev openssl-dev git zsh
-
-RUN docker-php-ext-configure gd --enable-gd \
+        imap-dev openssl-dev git zsh \
+    && docker-php-ext-configure gd --enable-gd \
         --with-freetype \
         --with-jpeg \
         --with-webp \
@@ -15,10 +16,11 @@ RUN docker-php-ext-configure gd --enable-gd \
     && docker-php-ext-configure zip --with-zip && docker-php-ext-install zip \
     && docker-php-ext-install gmp \
     && PHP_OPENSSL=yes docker-php-ext-configure imap --with-imap-ssl \
-    && docker-php-ext-install imap
+    && docker-php-ext-install imap \
+    && pecl install xdebug-${PHP_XDEBUG_VERSION} && docker-php-ext-enable xdebug \
+    && apk del $PHPIZE_DEPS \
+        zlib-dev libwebp-dev freetype-dev libpng-dev libjpeg-turbo-dev openssl-dev
 
-ARG PHP_XDEBUG_VERSION=3.1.2
-RUN pecl install xdebug-${PHP_XDEBUG_VERSION} && docker-php-ext-enable xdebug
 
 # Install composer
 ARG COMPOSER_VERSION=2.2.4
