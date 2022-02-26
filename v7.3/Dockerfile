@@ -6,7 +6,7 @@ ARG PHP_TIMECOP_VERSION=1.2.10
 
 RUN apk update && apk add --no-cache $PHPIZE_DEPS \
     && apk add --no-cache zlib-dev libwebp-dev freetype-dev libpng-dev libjpeg-turbo-dev openssl-dev \
-    && apk add --nop-cache curl zip git zsh gd-dev libzip-dev gmp-dev librdkafka-dev imap-dev \
+    && apk add --no-cache curl zip git zsh gd-dev libzip-dev gmp-dev librdkafka-dev imap-dev \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ \
         --with-jpeg-dir=/usr/include/ \
         --with-png-dir=/usr/include/ \
