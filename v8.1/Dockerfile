@@ -21,7 +21,7 @@ RUN apk update && apk add --no-cache $PHPIZE_DEPS \
         zlib-dev libwebp-dev freetype-dev libpng-dev libjpeg-turbo-dev openssl-dev
 
 # Install composer
-ARG COMPOSER_VERSION=2.2.4
+ARG COMPOSER_VERSION=2.2.7
 RUN curl -sS https://getcomposer.org/installer | php -- \
         --filename=composer \
         --version=${COMPOSER_VERSION} \
