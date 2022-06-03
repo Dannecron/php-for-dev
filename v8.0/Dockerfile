@@ -23,7 +23,7 @@ RUN apk update && apk add --no-cache $PHPIZE_DEPS \
 
 
 # Install composer
-ARG COMPOSER_VERSION=2.3.3
+ARG COMPOSER_VERSION=2.3.6
 RUN curl -sS https://getcomposer.org/installer | php -- \
         --filename=composer \
         --version=${COMPOSER_VERSION} \
