@@ -1,4 +1,4 @@
-FROM php:8.0.19-alpine
+FROM php:8.0.20-alpine
 
 ARG PHP_XDEBUG_VERSION=3.1.3
 
