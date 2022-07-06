@@ -1,6 +1,7 @@
 FROM php:8.1.7-alpine
 
 ARG PHP_XDEBUG_VERSION=3.1.3
+ARG COMPOSER_VERSION=2.3.9
 
 RUN apk update && apk add --no-cache $PHPIZE_DEPS \
     && apk add --no-cache zlib-dev gd-dev libwebp-dev freetype-dev libpng-dev libjpeg-turbo-dev \
@@ -21,7 +22,6 @@ RUN apk update && apk add --no-cache $PHPIZE_DEPS \
         zlib-dev libwebp-dev freetype-dev libpng-dev libjpeg-turbo-dev openssl-dev
 
 # Install composer
-ARG COMPOSER_VERSION=2.3.7
 RUN curl -sS https://getcomposer.org/installer | php -- \
         --filename=composer \
         --version=${COMPOSER_VERSION} \
