@@ -1,7 +1,7 @@
-FROM php:8.0.25-alpine
+FROM php:8.0.26-alpine
 
-ARG PHP_XDEBUG_VERSION=3.1.5
-ARG COMPOSER_VERSION=2.4.3
+ARG PHP_XDEBUG_VERSION=3.1.6
+ARG COMPOSER_VERSION=2.4.4
 
 RUN apk update && apk add --no-cache $PHPIZE_DEPS \
     && apk add --no-cache zlib-dev gd-dev libwebp-dev freetype-dev libpng-dev libjpeg-turbo-dev \

@@ -3,6 +3,7 @@ FROM php:7.3.33-alpine
 ARG PHP_XDEBUG_VERSION=2.9.8
 ARG PHP_RDKAFKA_VERSION=3.1.2
 ARG PHP_TIMECOP_VERSION=1.2.10
+ARG COMPOSER_VERSION=1.10.26
 
 RUN apk update && apk add --no-cache $PHPIZE_DEPS \
     && apk add --no-cache zlib-dev libwebp-dev freetype-dev libpng-dev libjpeg-turbo-dev openssl-dev \
@@ -35,8 +36,6 @@ RUN apk update && apk add --no-cache $PHPIZE_DEPS \
     && apk del $PHPIZE_DEPS \
         zlib-dev libwebp-dev freetype-dev libpng-dev libjpeg-turbo-dev openssl-dev
 
-# Install composer
-ARG COMPOSER_VERSION=1.10.24
 RUN curl -sS https://getcomposer.org/installer | php -- \
         --filename=composer \
         --version=${COMPOSER_VERSION} \
