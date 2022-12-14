@@ -1,11 +1,11 @@
 FROM php:8.0.26-alpine
 
-ARG PHP_XDEBUG_VERSION=3.1.6
+ARG PHP_XDEBUG_VERSION=3.2.0
 ARG COMPOSER_VERSION=2.4.4
 
 RUN apk update && apk add --no-cache $PHPIZE_DEPS \
     && apk add --no-cache zlib-dev gd-dev libwebp-dev freetype-dev libpng-dev libjpeg-turbo-dev \
-        curl zip libzip-dev gmp-dev \
+        curl zip libzip-dev gmp-dev linux-headers \
         #librdkafka-dev \
         imap-dev openssl-dev git zsh \
     && docker-php-ext-configure gd --enable-gd \
