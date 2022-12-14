@@ -55,6 +55,12 @@ jobs:
           docker run --rm localhost/php-for-dev:8.1 php -v
           docker tag localhost/php-for-dev:8.1 dannecron/php-for-dev:8.1
           echo "Done"
+      - name: Build the Docker images 8.2
+        run: |
+          DOCKER_BUILDKIT=1 docker build --cache-from=dannecron/php-for-dev:8.2 --build-arg BUILDKIT_INLINE_CACHE=1 --tag=localhost/php-for-dev:8.2 ./v8.2
+          docker run --rm localhost/php-for-dev:8.2 php -v
+          docker tag localhost/php-for-dev:8.2 dannecron/php-for-dev:8.2
+          echo "Done"
 
       - name: push 7.2 image to docker hub
         if: success()
@@ -85,6 +91,12 @@ jobs:
         uses: actions-hub/docker@master
         with:
           args: push dannecron/php-for-dev:8.1
+
+      - name: push 8.2 image to docker hub
+        if: success()
+        uses: actions-hub/docker@master
+        with:
+          args: push dannecron/php-for-dev:8.2
 
       - name: push latest image to docker hub
         if: success()
