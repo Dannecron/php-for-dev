@@ -16,17 +16,17 @@ Images can be found on [docker hub](https://hub.docker.com/repository/docker/dan
   * composer 2.5.1
   * xdebug 3.2.0
 * php 7.4.33 (latest)
-  * composer 1.10.26
+  * composer 2.5.1
   * xdebug 2.9.8
   * rdkafka 3.1.2
   * timecop 1.2.10
 * php 7.3.33
-  * composer 1.10.26
+  * composer 2.5.1
   * xdebug 2.9.8
   * rdkafka 3.1.2
   * timecop 1.2.10
 * php 7.2.34
-  * composer 1.10.26
+  * composer 2.5.1
   * xdebug 2.7.2
   * rdkafka 3.1.2
   * timecop 1.2.10
