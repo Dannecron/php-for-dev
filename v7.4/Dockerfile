@@ -1,9 +1,9 @@
 FROM php:7.4.33-alpine
 
 ARG PHP_XDEBUG_VERSION=2.9.8
-ARG PHP_RDKAFKA_VERSION=3.1.2
+ARG PHP_RDKAFKA_VERSION=6.0.3
 ARG PHP_TIMECOP_VERSION=1.2.10
-ARG COMPOSER_VERSION=2.5.1
+ARG COMPOSER_VERSION=2.5.5
 
 RUN apk update && apk add --no-cache $PHPIZE_DEPS \
     && apk add --no-cache zlib-dev libwebp-dev freetype-dev libpng-dev libjpeg-turbo-dev openssl-dev \

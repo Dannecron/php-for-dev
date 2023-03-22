@@ -6,29 +6,29 @@ Images can be found on [docker hub](https://hub.docker.com/repository/docker/dan
 
 #### Supported versions
 
-* php 8.2.1
+* php 8.2.4
+  * composer 2.5.5
+  * xdebug 3.2.0
+* php 8.1.17
   * composer 2.5.1
   * xdebug 3.2.0
-* php 8.1.14
-  * composer 2.5.1
-  * xdebug 3.2.0
-* php 8.0.27
-  * composer 2.5.1
+* php 8.0.28
+  * composer 2.5.5
   * xdebug 3.2.0
 * php 7.4.33 (latest)
-  * composer 2.5.1
+  * composer 2.5.5
   * xdebug 2.9.8
-  * rdkafka 3.1.2
+  * rdkafka 6.0.3
   * timecop 1.2.10
 * php 7.3.33
-  * composer 2.5.1
+  * composer 2.5.5
   * xdebug 2.9.8
-  * rdkafka 3.1.2
+  * rdkafka 6.0.3
   * timecop 1.2.10
 * php 7.2.34
-  * composer 2.5.1
+  * composer 2.5.5
   * xdebug 2.7.2
-  * rdkafka 3.1.2
+  * rdkafka 6.0.3
   * timecop 1.2.10
 
 All images now include [zsh](https://www.zsh.org/), that allowed using [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) and its plugins for improving user experience.
