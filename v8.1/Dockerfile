@@ -1,6 +1,6 @@
 FROM php:8.1.21-alpine
 
-ARG PHP_XDEBUG_VERSION=3.2.0
+ARG PHP_XDEBUG_VERSION=3.2.2
 ARG COMPOSER_VERSION=2.5.8
 
 RUN apk update && apk add --no-cache $PHPIZE_DEPS \
