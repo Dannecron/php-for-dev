@@ -1,0 +1,54 @@
+name: continious integration
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+    paths:
+      - 'v*/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        php_version: [7.2, 7.3, 7.4, 8.0, 8.1, 8.2]
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Login to docker hub
+        uses: actions-hub/docker/login@master
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build the Docker images ${{ matrix.version }}
+        run: |
+          DOCKER_BUILDKIT=1 docker build --cache-from=dannecron/php-for-dev:${{ matrix.version }} --build-arg BUILDKIT_INLINE_CACHE=1 --tag=localhost/php-for-dev:${{ matrix.version }} ./v${{ matrix.version }}
+          docker run --rm localhost/php-for-dev:${{ matrix.version }} php -v
+          docker tag localhost/php-for-dev:${{ matrix.version }} dannecron/php-for-dev:${{ matrix.version }}
+          echo "Done"
+
+      - name: push ${{ matrix.version }} image to docker hub
+        if: success()
+        uses: actions-hub/docker@master
+        with:
+          args: push dannecron/php-for-dev:${{ matrix.version }}
+      
+      - name: tag latest image
+        if: |
+          success()
+          && ${{ matrix.version }} == 7.4
+        uses: actions-hub/docker@master
+        with:
+          args: tag dannecron/php-for-dev:7.4 dannecron/php-for-dev:latest
+
+      - name: push latest image to docker hub
+        if: |
+          success()
+          && ${{ matrix.version }} == 7.4
+        uses: actions-hub/docker@master
+        with:
+          args: push dannecron/php-for-dev:latest
