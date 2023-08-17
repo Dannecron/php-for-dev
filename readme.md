@@ -1,6 +1,6 @@
 ### Docker images with php and composer inside
 
-[![continious integration](https://github.com/Dannecron/php-for-dev/actions/workflows/continious-integration.yml/badge.svg?branch=master)](https://github.com/Dannecron/php-for-dev/actions)
+[![continuous integration](https://github.com/Dannecron/php-for-dev/actions/workflows/continuous-integration.yml/badge.svg?branch=master)](https://github.com/Dannecron/php-for-dev/actions)
 
 Images can be found on [docker hub](https://hub.docker.com/repository/docker/dannecron/php-for-dev)
 
