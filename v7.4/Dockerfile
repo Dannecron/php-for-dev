@@ -3,7 +3,7 @@ FROM php:7.4.33-alpine
 ARG PHP_XDEBUG_VERSION=2.9.8
 ARG PHP_RDKAFKA_VERSION=6.0.3
 ARG PHP_TIMECOP_VERSION=1.2.10
-ARG COMPOSER_VERSION=2.6.2
+ARG COMPOSER_VERSION=2.6.4
 
 RUN apk update && apk add --no-cache $PHPIZE_DEPS \
     && apk add --no-cache zlib-dev libwebp-dev freetype-dev libpng-dev libjpeg-turbo-dev openssl-dev \
@@ -31,7 +31,7 @@ RUN apk update && apk add --no-cache $PHPIZE_DEPS \
         && make -j$(nproc) \
         && make install \
     ) \
-    && rm -r timecop \
+    && rm -rf timecop \
     && docker-php-ext-enable timecop \
     && apk del $PHPIZE_DEPS \
         zlib-dev libwebp-dev freetype-dev libpng-dev libjpeg-turbo-dev openssl-dev
