@@ -35,7 +35,7 @@ All images now include [zsh](https://www.zsh.org/), that allowed using [oh-my-zs
 
 #### Build
 
-To build container just use one of this commands:
+To build container just use one of these commands:
 ```bash
 make build-72
 make build-73
