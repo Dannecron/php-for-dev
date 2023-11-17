@@ -24,9 +24,18 @@ jobs:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 
+      - name: Read .env file
+        uses: cardinalby/export-env-action@v2
+        with:
+          envFile: '.env'
+
       - name: Build the Docker images ${{ matrix.php_version }}
         run: |
-          DOCKER_BUILDKIT=1 docker build --cache-from=dannecron/php-for-dev:${{ matrix.php_version }} --build-arg BUILDKIT_INLINE_CACHE=1 --tag=localhost/php-for-dev:${{ matrix.php_version }} ./v${{ matrix.php_version }}
+          DOCKER_BUILDKIT=1 docker build --cache-from=dannecron/php-for-dev:${{ matrix.php_version }} \
+            --build-arg BUILDKIT_INLINE_CACHE=1 \
+            --build-arg COMPOSER_VERSION=${{ env.COMPOSER_VERSION }} \
+            --tag=localhost/php-for-dev:${{ matrix.php_version }} \
+            ./v${{ matrix.php_version }}
           docker run --rm localhost/php-for-dev:${{ matrix.php_version }} php -v
           docker tag localhost/php-for-dev:${{ matrix.php_version }} dannecron/php-for-dev:${{ matrix.php_version }}
           echo "Done"
@@ -36,7 +45,7 @@ jobs:
         uses: actions-hub/docker@master
         with:
           args: push dannecron/php-for-dev:${{ matrix.php_version }}
-      
+
       - name: tag latest image
         if: success() && matrix.php_version == '7.4'
         uses: actions-hub/docker@master
