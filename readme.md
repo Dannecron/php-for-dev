@@ -6,27 +6,24 @@ Images can be found on [docker hub](https://hub.docker.com/repository/docker/dan
 
 #### Supported versions
 
-* php 8.2.11
-  * composer 2.6.4
+all images includes:
+* composer 2.6.5
+
+* php 8.2.12
   * xdebug 3.2.2
-* php 8.1.24
-  * composer 2.6.4
+* php 8.1.25
   * xdebug 3.2.2
 * php 8.0.30
-  * composer 2.6.4
   * xdebug 3.2.2
 * php 7.4.33 (latest)
-  * composer 2.6.4
   * xdebug 2.9.8
   * rdkafka 6.0.3
   * timecop 1.2.10
 * php 7.3.33
-  * composer 2.6.4
   * xdebug 2.9.8
   * rdkafka 6.0.3
   * timecop 1.2.10
 * php 7.2.34
-  * composer 2.6.4
   * xdebug 2.7.2
   * rdkafka 6.0.3
   * timecop 1.2.10
