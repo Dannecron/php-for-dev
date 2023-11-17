@@ -6,9 +6,6 @@ Images can be found on [docker hub](https://hub.docker.com/repository/docker/dan
 
 #### Supported versions
 
-all images includes:
-* composer 2.6.5
-
 * php 8.2.12
   * xdebug 3.2.2
 * php 8.1.25
@@ -28,7 +25,9 @@ all images includes:
   * rdkafka 6.0.3
   * timecop 1.2.10
 
-All images now include [zsh](https://www.zsh.org/), that allowed using [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) and its plugins for improving user experience.
+All images includes:
+* composer 2.6.5
+* [zsh](https://www.zsh.org/), that allowed using [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) and its plugins for improving user experience.
 
 #### Build
 
