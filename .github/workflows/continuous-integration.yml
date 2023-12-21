@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
-        php_version: ['7.2', '7.3', '7.4', '8.0', '8.1', '8.2']
+        php_version: ['7.2', '7.3', '7.4', '8.0', '8.1', '8.2', '8.3']
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
@@ -49,13 +49,13 @@ jobs:
           args: push dannecron/php-for-dev:${{ matrix.php_version }}
 
       - name: tag latest image
-        if: success() && matrix.php_version == '7.4'
+        if: success() && matrix.php_version == '8.0'
         uses: actions-hub/docker@master
         with:
-          args: tag dannecron/php-for-dev:7.4 dannecron/php-for-dev:latest
+          args: tag dannecron/php-for-dev:${{ matrix.php_version }} dannecron/php-for-dev:latest
 
       - name: push latest image to docker hub
-        if: success() && matrix.php_version == '7.4'
+        if: success() && matrix.php_version == '8.0'
         uses: actions-hub/docker@master
         with:
           args: push dannecron/php-for-dev:latest
