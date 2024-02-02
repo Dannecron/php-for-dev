@@ -6,9 +6,9 @@ Images can be found on [docker hub](https://hub.docker.com/repository/docker/dan
 
 #### Supported versions
 
-* php 8.3.1
+* php 8.3.2
   * xdebug 3.3.1
-* php 8.2.14
+* php 8.2.15
   * xdebug 3.3.1
 * php 8.1.27
   * xdebug 3.3.1

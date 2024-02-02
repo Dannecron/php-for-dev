@@ -1,4 +1,4 @@
-FROM php:8.3.1-alpine
+FROM php:8.3.2-alpine
 
 ARG COMPOSER_VERSION
 ARG PHP_XDEBUG_VERSION=3.3.1
