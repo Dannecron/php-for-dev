@@ -20,9 +20,6 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
-
       - name: Login to docker hub
         uses: actions-hub/docker/login@master
         env:
@@ -36,8 +33,7 @@ jobs:
 
       - name: Build the Docker images ${{ matrix.php_version }}
         run: |
-          docker buildx build --cache-from=dannecron/php-for-dev:${{ matrix.php_version }} \
-            --platform=linux/amd64,linux/arm64/v8 \
+          DOCKER_BUILDKIT=1 docker build --cache-from=dannecron/php-for-dev:${{ matrix.php_version }} \
             --build-arg BUILDKIT_INLINE_CACHE=1 \
             --build-arg COMPOSER_VERSION=${{ env.COMPOSER_VERSION }} \
             --tag=localhost/php-for-dev:${{ matrix.php_version }} \
