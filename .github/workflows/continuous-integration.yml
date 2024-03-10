@@ -33,7 +33,8 @@ jobs:
 
       - name: Build the Docker images ${{ matrix.php_version }}
         run: |
-          DOCKER_BUILDKIT=1 docker build --cache-from=dannecron/php-for-dev:${{ matrix.php_version }} \
+          docker buildx --cache-from=dannecron/php-for-dev:${{ matrix.php_version }} \
+            --platform=linux/amd64,linux/arm64/v8 \
             --build-arg BUILDKIT_INLINE_CACHE=1 \
             --build-arg COMPOSER_VERSION=${{ env.COMPOSER_VERSION }} \
             --tag=localhost/php-for-dev:${{ matrix.php_version }} \
