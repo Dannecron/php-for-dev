@@ -40,13 +40,15 @@ jobs:
 
       - name: Build the Docker images ${{ matrix.php_version }}
         run: |
-          docker buildx build --cache-from=dannecron/php-for-dev:${{ matrix.php_version }} \
-           --push \
-           --platform=linux/amd64,linux/arm64 \
-           --build-arg COMPOSER_VERSION=${{ env.COMPOSER_VERSION }} \
-           --tag=dannecron/php-for-dev:${{ matrix.php_version }} \
-           $(if test "${{ matrix.php_version }}" = "8.0"; then printf %s '--tag=dannecron/php-for-dev:latest'; fi) \
-           ./v${{ matrix.php_version }}
+          docker buildx build --push \
+            --platform=linux/amd64,linux/arm64 \
+            --build-arg BUILDKIT_INLINE_CACHE=1 \
+            --build-arg COMPOSER_VERSION=${{ env.COMPOSER_VERSION }} \
+            --cache-from=dannecron/php-for-dev:${{ matrix.php_version }} \
+            --cache-to=dannecron/php-for-dev:${{ matrix.php_version }} \
+            --tag=dannecron/php-for-dev:${{ matrix.php_version }} \
+            $(if test "${{ matrix.php_version }}" = "8.0"; then printf %s '--tag=dannecron/php-for-dev:latest'; fi) \
+            ./v${{ matrix.php_version }}
           echo "Done"
 
         
