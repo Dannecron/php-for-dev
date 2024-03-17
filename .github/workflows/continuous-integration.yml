@@ -22,6 +22,12 @@ jobs:
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
+
+      - name: Set up custom docker builder
+        run: |
+          docker buildx create --name multiarch-builder
+          docker buildx use multiarch-builder
+          docker buildx inspect --bootstrap
   
       - name: Login to docker hub
         uses: actions-hub/docker/login@master
