@@ -43,29 +43,12 @@ jobs:
       - name: Build the Docker images ${{ matrix.php_version }}
         run: |
           docker buildx build --cache-from=dannecron/php-for-dev:${{ matrix.php_version }} \
+            --push \
             --platform=linux/amd64,linux/arm64 \
             --build-arg BUILDKIT_INLINE_CACHE=1 \
             --build-arg COMPOSER_VERSION=${{ env.COMPOSER_VERSION }} \
-            --tag=localhost/php-for-dev:${{ matrix.php_version }} \
+            --tag=dannecron/php-for-dev:${{ matrix.php_version }} \
+            $( (( "${{ matrix.php_version }}" -eq '8.0' )) && printf %s '--tag=dannecron/php-for-dev:latest') \
             ./v${{ matrix.php_version }}
-          docker run --rm localhost/php-for-dev:${{ matrix.php_version }} php -v
-          docker tag localhost/php-for-dev:${{ matrix.php_version }} dannecron/php-for-dev:${{ matrix.php_version }}
           echo "Done"
 
-      - name: push ${{ matrix.php_version }} image to docker hub
-        if: success()
-        uses: actions-hub/docker@master
-        with:
-          args: push dannecron/php-for-dev:${{ matrix.php_version }}
-
-      - name: tag latest image
-        if: success() && matrix.php_version == '8.0'
-        uses: actions-hub/docker@master
-        with:
-          args: tag dannecron/php-for-dev:${{ matrix.php_version }} dannecron/php-for-dev:latest
-
-      - name: push latest image to docker hub
-        if: success() && matrix.php_version == '8.0'
-        uses: actions-hub/docker@master
-        with:
-          args: push dannecron/php-for-dev:latest
