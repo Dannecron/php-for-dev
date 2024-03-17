@@ -43,8 +43,8 @@ jobs:
             --platform=linux/amd64,linux/arm64 \
             --build-arg BUILDKIT_INLINE_CACHE=1 \
             --build-arg COMPOSER_VERSION=${{ env.COMPOSER_VERSION }} \
-            --cache-from="type=registry,ref=dannecron/php-for-dev:${{ matrix.php_version }}-cache,mode=max" \
-            --cache-to="type=registry,dannecron/php-for-dev:${{ matrix.php_version }}-cache,mode=max" \
+            --cache-from="type=registry,ref=dannecron/php-for-dev:${{ matrix.php_version }}.cache,mode=max" \
+            --cache-to="type=registry,dannecron/php-for-dev:${{ matrix.php_version }}.cache,mode=max" \
             --tag=dannecron/php-for-dev:${{ matrix.php_version }} \
             $(if test "${{ matrix.php_version }}" = "8.0"; then printf %s '--tag=dannecron/php-for-dev:latest'; fi) \
             ./v${{ matrix.php_version }}
