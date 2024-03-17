@@ -16,7 +16,7 @@ jobs:
     strategy:
       matrix:
         # todo rollback changes
-        php_version: ['8.0', '8.3']
+        php_version: ['8.0']
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -45,7 +45,7 @@ jobs:
            --platform=linux/amd64,linux/arm64 \
            --build-arg COMPOSER_VERSION=${{ env.COMPOSER_VERSION }} \
            --tag=dannecron/php-for-dev:${{ matrix.php_version }} \
-           $( (( "${{ matrix.php_version }}" -eq '8.0' )) && printf %s '--tag=dannecron/php-for-dev:latest') \
+           $(if test "${{ matrix.php_version }}" = "8.0"; then printf %s '--tag=dannecron/php-for-dev:latest'; fi) \
            ./v${{ matrix.php_version }}
           echo "Done"
 
