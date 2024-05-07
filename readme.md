@@ -11,18 +11,21 @@ Images can be found on [docker hub](https://hub.docker.com/repository/docker/dan
 * php 8.1.28
 * php 8.0.30 **(latest)**
 * php 7.4.33
+  * xdebug 3.1.6
   * rdkafka 6.0.3
   * timecop 1.2.10
 * php 7.3.33
+  * xdebug 3.1.6
   * rdkafka 6.0.3
   * timecop 1.2.10
 * php 7.2.34
+  * xdebug 3.1.6
   * rdkafka 6.0.3
   * timecop 1.2.10
 
 All images includes:
 * composer 2.7.6
-* xdebug 3.3.2
+* xdebug 3.3.2 (except 7.x)
 * [zsh](https://www.zsh.org/), that allowed using [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) and its plugins for improving user experience.
 
 #### Build

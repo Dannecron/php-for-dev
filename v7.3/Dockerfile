@@ -18,7 +18,7 @@ RUN apk update && apk add --no-cache $PHPIZE_DEPS \
     && docker-php-ext-install gmp \
     && docker-php-ext-configure imap --with-imap-ssl \
     && docker-php-ext-install imap \
-    && pecl install xdebug-${PHP_XDEBUG_VERSION} && docker-php-ext-enable xdebug \
+    && pecl install xdebug-3.1.6 && docker-php-ext-enable xdebug \
     && pecl install rdkafka-${PHP_RDKAFKA_VERSION} && docker-php-ext-enable rdkafka \
     && curl -L -o /tmp/timecop.tar.gz https://github.com/hnw/php-timecop/archive/v${PHP_TIMECOP_VERSION}.tar.gz \
     && mkdir -p timecop \
