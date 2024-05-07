@@ -43,6 +43,7 @@ jobs:
             --platform=linux/amd64,linux/arm64 \
             --build-arg BUILDKIT_INLINE_CACHE=1 \
             --build-arg COMPOSER_VERSION=${{ env.COMPOSER_VERSION }} \
+            --build-arg XDEBUG_VERSION=${{ env.XDEBUG_VERSION }} \
             --cache-from="type=registry,ref=dannecron/php-for-dev:${{ matrix.php_version }}.cache,mode=max" \
             --cache-to="type=registry,ref=dannecron/php-for-dev:${{ matrix.php_version }}.cache,mode=max" \
             --tag=dannecron/php-for-dev:${{ matrix.php_version }} \
