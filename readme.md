@@ -54,16 +54,16 @@ where replace `M` with major, and `m` with minor php version.
 ##### Using oh-my-zsh from local machine
 
 To use already installed `oh-my-zsh` inside docker container we should pass couple volumes and environment variables:
-* `-v .zshrc:/home/user/.zshrc` - configuration file for `zsh`
-* `-v .oh-my-zsh:/home/user/oh-my-zsh` - directory with installed `oh-my-zsh`
+* `-v ~/.zshrc:/home/user/.zshrc` - configuration file for `zsh`
+* `-v ~/.oh-my-zsh:/home/user/oh-my-zsh` - directory with installed `oh-my-zsh`
 * `-e HOME=/home/user` - define user home directory
 
 Full run command would be looks like
 ```bash
 docker run -it --rm \
     -v `pwd`:/var/www/project \
-    -v .zshrc:/home/user/.zshrc \
-    -v .oh-my-zsh:/home/user/oh-my-zsh \
+    -v ~/.zshrc:/home/user/.zshrc \
+    -v ~/.oh-my-zsh:/home/user/oh-my-zsh \
     -e HOME=/home/user \
     -w /var/www/project \
     --user=1000 php-for-dev:M.m zsh
