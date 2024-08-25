@@ -24,7 +24,7 @@ Images can be found on [docker hub](https://hub.docker.com/repository/docker/dan
   * timecop 1.2.10
 
 All images includes:
-* composer 2.7.6
+* composer 2.7.8
 * xdebug 3.3.2 (except 7.x)
 * [zsh](https://www.zsh.org/), that allowed using [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) and its plugins for improving user experience.
 
