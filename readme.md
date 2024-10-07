@@ -6,9 +6,9 @@ Images can be found on [docker hub](https://hub.docker.com/repository/docker/dan
 
 #### Supported versions
 
-* php 8.3.10
-* php 8.2.22
-* php 8.1.29
+* php 8.3.12
+* php 8.2.24
+* php 8.1.30
 * php 8.0.30 **(latest)**
 * php 7.4.33
   * xdebug 3.1.6
@@ -24,7 +24,7 @@ Images can be found on [docker hub](https://hub.docker.com/repository/docker/dan
   * timecop 1.2.10
 
 All images includes:
-* composer 2.7.8
+* composer 2.8.1
 * xdebug 3.3.2 (except 7.x)
 * [zsh](https://www.zsh.org/), that allowed using [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) and its plugins for improving user experience.
 
