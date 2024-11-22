@@ -15,9 +15,7 @@ RUN apk update && apk add --no-cache $PHPIZE_DEPS \
     && docker-php-ext-configure bcmath && docker-php-ext-install bcmath \
     && docker-php-ext-configure zip --with-zip && docker-php-ext-install zip \
     && docker-php-ext-install gmp \
-    && PHP_OPENSSL=yes docker-php-ext-configure imap --with-imap-ssl \
-    && docker-php-ext-install imap \
-    && pecl install xdebug-${PHP_XDEBUG_VERSION} && docker-php-ext-enable xdebug \
+    #&& pecl install xdebug-${PHP_XDEBUG_VERSION} && docker-php-ext-enable xdebug \
     && apk del $PHPIZE_DEPS \
         zlib-dev libwebp-dev freetype-dev libpng-dev libjpeg-turbo-dev openssl-dev
 
@@ -27,4 +25,4 @@ RUN curl -sS https://getcomposer.org/installer | php -- \
         --version=${COMPOSER_VERSION} \
         --install-dir=/usr/local/bin
 RUN mkdir -m 777 -p /var/composer/
-ENV COMPOSER_HOME /var/composer/
+ENV COMPOSER_HOME=/var/composer/

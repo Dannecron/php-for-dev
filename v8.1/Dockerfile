@@ -27,4 +27,4 @@ RUN curl -sS https://getcomposer.org/installer | php -- \
         --version=${COMPOSER_VERSION} \
         --install-dir=/usr/local/bin
 RUN mkdir -m 777 -p /var/composer/
-ENV COMPOSER_HOME /var/composer/
+ENV COMPOSER_HOME=/var/composer/

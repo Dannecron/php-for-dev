@@ -11,16 +11,16 @@ build-74:
 	cd ./v7.4 && docker build --build-arg COMPOSER_VERSION=${COMPOSER_VERSION} --tag=php-for-dev:7.4 `pwd`
 
 build-80:
-	cd ./v8.0 && docker build --build-arg COMPOSER_VERSION=${COMPOSER_VERSION} ---build-arg PHP_XDEBUG_VERSION=${XDEBUG_VERSION} -tag=php-for-dev:8.0 `pwd`
+	cd ./v8.0 && docker build --build-arg COMPOSER_VERSION=${COMPOSER_VERSION} --build-arg PHP_XDEBUG_VERSION=${XDEBUG_VERSION} --tag=php-for-dev:8.0 `pwd`
 
 build-81:
-	cd ./v8.1 && docker build --build-arg COMPOSER_VERSION=${COMPOSER_VERSION} ---build-arg PHP_XDEBUG_VERSION=${XDEBUG_VERSION} -tag=php-for-dev:8.1 `pwd`
+	cd ./v8.1 && docker build --build-arg COMPOSER_VERSION=${COMPOSER_VERSION} --build-arg PHP_XDEBUG_VERSION=${XDEBUG_VERSION} --tag=php-for-dev:8.1 `pwd`
 
 build-82:
-	cd ./v8.2 && docker build --build-arg COMPOSER_VERSION=${COMPOSER_VERSION} ---build-arg PHP_XDEBUG_VERSION=${XDEBUG_VERSION} -tag=php-for-dev:8.2 `pwd`
+	cd ./v8.2 && docker build --build-arg COMPOSER_VERSION=${COMPOSER_VERSION} --build-arg PHP_XDEBUG_VERSION=${XDEBUG_VERSION} --tag=php-for-dev:8.2 `pwd`
 
 build-83:
-	cd ./v8.3 && docker build --build-arg composer_version=${composer_version} ---build-arg php_xdebug_version=${xdebug_version} -tag=php-for-dev:8.3 `pwd`
+	cd ./v8.3 && docker build --build-arg COMPOSER_VERSION=${COMPOSER_VERSION} --build-arg PHP_XDEBUG_VERSION=${XDEBUG_VERSION} --tag=php-for-dev:8.3 `pwd`
 
 build-84:
-	cd ./v8.4 && docker build --build-arg composer_version=${composer_version} ---build-arg php_xdebug_version=${xdebug_version} -tag=php-for-dev:8.4 `pwd` 
+	cd ./v8.4 && docker build --build-arg COMPOSER_VERSION=${COMPOSER_VERSION} --build-arg PHP_XDEBUG_VERSION=${XDEBUG_VERSION} --tag=php-for-dev:8.4 `pwd` 

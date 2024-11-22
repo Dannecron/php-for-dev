@@ -7,6 +7,8 @@ Images can be found on [docker hub](https://hub.docker.com/repository/docker/dan
 #### Supported versions
 
 * php 8.4.1
+  * removed `imap` extension ([reason](https://wiki.php.net/rfc/unbundle_imap_pspell_oci8))
+  * _temporary_ removed `xdebug` extension
 * php 8.3.14
 * php 8.2.26
 * php 8.1.31
