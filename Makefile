@@ -20,4 +20,7 @@ build-82:
 	cd ./v8.2 && docker build --build-arg COMPOSER_VERSION=${COMPOSER_VERSION} ---build-arg PHP_XDEBUG_VERSION=${XDEBUG_VERSION} -tag=php-for-dev:8.2 `pwd`
 
 build-83:
-	cd ./v8.3 && docker build --build-arg COMPOSER_VERSION=${COMPOSER_VERSION} ---build-arg PHP_XDEBUG_VERSION=${XDEBUG_VERSION} -tag=php-for-dev:8.3 `pwd`
+	cd ./v8.3 && docker build --build-arg composer_version=${composer_version} ---build-arg php_xdebug_version=${xdebug_version} -tag=php-for-dev:8.3 `pwd`
+
+build-84:
+	cd ./v8.4 && docker build --build-arg composer_version=${composer_version} ---build-arg php_xdebug_version=${xdebug_version} -tag=php-for-dev:8.4 `pwd` 
