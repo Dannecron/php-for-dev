@@ -8,7 +8,6 @@ Images can be found on [docker hub](https://hub.docker.com/repository/docker/dan
 
 * php 8.4.1
   * removed `imap` extension ([reason](https://wiki.php.net/rfc/unbundle_imap_pspell_oci8))
-  * _temporary_ removed `xdebug` extension
 * php 8.3.14
 * php 8.2.26
 * php 8.1.31
@@ -28,7 +27,7 @@ Images can be found on [docker hub](https://hub.docker.com/repository/docker/dan
 
 All images includes:
 * composer 2.8.1
-* xdebug 3.3.2 (except 7.x)
+* xdebug 3.4.0 (except 7.x)
 * [zsh](https://www.zsh.org/), that allowed using [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) and its plugins for improving user experience.
 
 #### Build
@@ -42,6 +41,7 @@ make build-80
 make build-81
 make build-82
 make build-83
+make build-84
 ```
 
 #### Run
