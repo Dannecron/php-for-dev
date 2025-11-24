@@ -6,11 +6,11 @@ Images can be found on [docker hub](https://hub.docker.com/repository/docker/dan
 
 #### Supported versions
 
-* php 8.4.1
+* php 8.4.15
   * removed `imap` extension ([reason](https://wiki.php.net/rfc/unbundle_imap_pspell_oci8))
-* php 8.3.14
-* php 8.2.26
-* php 8.1.31
+* php 8.3.28
+* php 8.2.29
+* php 8.1.33
 * php 8.0.30 **(latest)**
 * php 7.4.33
   * xdebug 3.1.6
@@ -26,8 +26,8 @@ Images can be found on [docker hub](https://hub.docker.com/repository/docker/dan
   * timecop 1.2.10
 
 All images includes:
-* composer 2.8.1
-* xdebug 3.4.0 (except 7.x)
+* composer 2.9.2
+* xdebug 3.4.7 (except 7.x)
 * [zsh](https://www.zsh.org/), that allowed using [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) and its plugins for improving user experience.
 
 #### Build
